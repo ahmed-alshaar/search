@@ -1,0 +1,321 @@
+
+                <html>
+                <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+                    <script src="https://cdn.tailwindcss.com"></script>
+                    <script>
+                        window.FontAwesomeConfig = {
+                            autoReplaceSvg: 'nest', // Options: 'nest', 'remove', 'replace'
+                        };
+                    </script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+                    <style>
+                    </style>
+                    <script>
+                    tailwind.config = {
+                    theme: {
+                        extend: {
+                        colors: {
+                            primary: {"50":"#fafafa","100":"#f5f5f5","200":"#e5e5e5","300":"#d4d4d4","400":"#a3a3a3","500":"#737373","600":"#525252","700":"#404040","800":"#262626","900":"#171717","950":"#0a0a0a"}
+                        }
+                        }
+                    }
+                    }
+                </script>
+                </head>
+
+                <body>
+                        <div id="ai-search-interface" class="min-h-[840px] bg-neutral-900 text-white relative overflow-hidden pb-20">
+  <!-- Background Pattern -->
+  <div class="absolute inset-0 opacity-10">
+    <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-neutral-800 to-neutral-900"></div>
+    <div class="absolute top-20 right-10 w-32 h-32 border border-neutral-700 rounded-full opacity-20"></div>
+    <div class="absolute bottom-40 left-5 w-20 h-20 border border-neutral-700 rounded-full opacity-20"></div>
+  </div>
+
+  <!-- Header -->
+  <header id="header" class="relative z-10 px-6 pt-8 pb-4">
+    <div class="flex items-center justify-between mb-6">
+      <div class="flex items-center space-x-3">
+        <button class="w-10 h-10 bg-neutral-800 border border-neutral-700 rounded-lg flex items-center justify-center">
+          <i class="fa-solid fa-arrow-left text-white"></i>
+        </button>
+        <div>
+          <h1 class="text-lg">AI Search</h1>
+          <p class="text-xs text-neutral-400">Ask me anything</p>
+        </div>
+      </div>
+      <div class="flex items-center space-x-2">
+        <button class="w-10 h-10 bg-neutral-800 border border-neutral-700 rounded-lg flex items-center justify-center">
+          <i class="fa-solid fa-rotate-right text-neutral-400"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Chat Thread Container -->
+  <main id="main-content" class="relative z-10 px-6 pb-32 overflow-y-auto">
+    
+    <!-- User Message 1 -->
+    <div id="user-message-1" class="mb-4 flex justify-end">
+      <div class="bg-neutral-800 border border-neutral-700 rounded-2xl rounded-tr-sm px-4 py-3 max-w-[280px]">
+        <p class="text-sm">Games like Hades but with sci-fi themes</p>
+      </div>
+    </div>
+
+    <!-- Assistant Response 1 -->
+    <div id="assistant-response-1" class="mb-6">
+      <div class="flex items-start space-x-3 mb-3">
+        <div class="w-8 h-8 bg-neutral-800 border border-neutral-700 rounded-lg flex items-center justify-center flex-shrink-0">
+          <i class="fa-solid fa-brain text-white text-xs"></i>
+        </div>
+        <div class="bg-neutral-800 border border-neutral-700 rounded-2xl rounded-tl-sm px-4 py-3 flex-1">
+          <p class="text-sm text-neutral-300 mb-3">I found 8 sci-fi action roguelikes with similar gameplay. Let me refine:</p>
+          <div class="flex flex-wrap gap-2">
+            <button class="bg-neutral-700 border border-neutral-600 px-3 py-1.5 rounded-lg text-xs flex items-center">
+              <i class="fa-solid fa-gamepad mr-2 text-neutral-400"></i>
+              Top-down view?
+            </button>
+            <button class="bg-neutral-700 border border-neutral-600 px-3 py-1.5 rounded-lg text-xs flex items-center">
+              <i class="fa-solid fa-users mr-2 text-neutral-400"></i>
+              Co-op support?
+            </button>
+            <button class="bg-neutral-700 border border-neutral-600 px-3 py-1.5 rounded-lg text-xs flex items-center">
+              <i class="fa-solid fa-clock mr-2 text-neutral-400"></i>
+              Session length?
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- User Message 2 -->
+    <div id="user-message-2" class="mb-4 flex justify-end">
+      <div class="bg-neutral-800 border border-neutral-700 rounded-2xl rounded-tr-sm px-4 py-3 max-w-[280px]">
+        <p class="text-sm">Yes top-down, solo play, short sessions</p>
+      </div>
+    </div>
+
+    <!-- Assistant Response 2 with Results -->
+    <div id="assistant-response-2" class="mb-4">
+      <div class="flex items-start space-x-3 mb-3">
+        <div class="w-8 h-8 bg-neutral-800 border border-neutral-700 rounded-lg flex items-center justify-center flex-shrink-0">
+          <i class="fa-solid fa-brain text-white text-xs"></i>
+        </div>
+        <div class="bg-neutral-800 border border-neutral-700 rounded-2xl rounded-tl-sm px-4 py-3 flex-1">
+          <p class="text-sm text-neutral-300 mb-3">Perfect! Here are 4 matches optimized for solo, short sessions:</p>
+        </div>
+      </div>
+
+      <!-- Active Filter Chips -->
+      <div id="active-filters" class="flex flex-wrap gap-2 mb-4 ml-11">
+        <div class="bg-white text-neutral-900 px-3 py-1 rounded-lg text-xs flex items-center">
+          <span>Top-down</span>
+          <i class="fa-solid fa-xmark ml-2"></i>
+        </div>
+        <div class="bg-white text-neutral-900 px-3 py-1 rounded-lg text-xs flex items-center">
+          <span>Solo</span>
+          <i class="fa-solid fa-xmark ml-2"></i>
+        </div>
+        <div class="bg-white text-neutral-900 px-3 py-1 rounded-lg text-xs flex items-center">
+          <span>Short sessions</span>
+          <i class="fa-solid fa-xmark ml-2"></i>
+        </div>
+      </div>
+
+      <!-- Result Card 1 -->
+      <div class="bg-neutral-800 border border-neutral-700 rounded-xl overflow-hidden mb-3 ml-11">
+        <div class="flex p-3">
+          <div class="w-20 h-20 bg-neutral-700 rounded-lg flex items-center justify-center mr-3 flex-shrink-0">
+            <p class="text-neutral-500 text-xs text-center px-1">Neon Strike Cover</p>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-start justify-between mb-1">
+              <h3 class="text-sm mr-2">Neon Strike Protocol</h3>
+              <div class="bg-white text-neutral-900 px-2 py-0.5 rounded text-xs flex-shrink-0">94%</div>
+            </div>
+            <p class="text-xs text-neutral-400 mb-2 line-clamp-2">Fast-paced sci-fi roguelike with weapon synergies</p>
+            <div class="flex flex-wrap gap-1 mb-2">
+              <span class="bg-neutral-700 px-2 py-0.5 rounded text-xs">Roguelike</span>
+              <span class="bg-neutral-700 px-2 py-0.5 rounded text-xs">Sci-Fi</span>
+              <span class="bg-neutral-700 px-2 py-0.5 rounded text-xs">15-30min</span>
+            </div>
+          </div>
+        </div>
+        <div class="bg-neutral-900 px-3 py-2 border-t border-neutral-700">
+          <div class="flex items-center justify-between mb-2">
+            <p class="text-xs text-neutral-400">Why this match:</p>
+          </div>
+          <p class="text-xs text-neutral-300 mb-3">Similar upgrade progression, cybernetic power-ups, run-based structure</p>
+          <div class="flex space-x-2">
+            <button class="flex-1 bg-white text-neutral-900 py-2 rounded-lg text-xs flex items-center justify-center">
+              <i class="fa-solid fa-bookmark mr-2"></i>
+              Save
+            </button>
+            <button class="flex-1 bg-neutral-700 border border-neutral-600 py-2 rounded-lg text-xs">
+              Details
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Result Card 2 -->
+      <div class="bg-neutral-800 border border-neutral-700 rounded-xl overflow-hidden mb-3 ml-11">
+        <div class="flex p-3">
+          <div class="w-20 h-20 bg-neutral-700 rounded-lg flex items-center justify-center mr-3 flex-shrink-0">
+            <p class="text-neutral-500 text-xs text-center px-1">Void Runner Cover</p>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-start justify-between mb-1">
+              <h3 class="text-sm mr-2">Void Runner</h3>
+              <div class="bg-white text-neutral-900 px-2 py-0.5 rounded text-xs flex-shrink-0">91%</div>
+            </div>
+            <p class="text-xs text-neutral-400 mb-2 line-clamp-2">Space station roguelike with modular ship builds</p>
+            <div class="flex flex-wrap gap-1 mb-2">
+              <span class="bg-neutral-700 px-2 py-0.5 rounded text-xs">Roguelike</span>
+              <span class="bg-neutral-700 px-2 py-0.5 rounded text-xs">Space</span>
+              <span class="bg-neutral-700 px-2 py-0.5 rounded text-xs">20-40min</span>
+            </div>
+          </div>
+        </div>
+        <div class="bg-neutral-900 px-3 py-2 border-t border-neutral-700">
+          <div class="flex items-center justify-between mb-2">
+            <p class="text-xs text-neutral-400">Why this match:</p>
+          </div>
+          <p class="text-xs text-neutral-300 mb-3">High skill ceiling, build variety, permanent meta-progression</p>
+          <div class="flex space-x-2">
+            <button class="flex-1 bg-white text-neutral-900 py-2 rounded-lg text-xs flex items-center justify-center">
+              <i class="fa-solid fa-bookmark mr-2"></i>
+              Save
+            </button>
+            <button class="flex-1 bg-neutral-700 border border-neutral-600 py-2 rounded-lg text-xs">
+              Details
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Result Card 3 -->
+      <div class="bg-neutral-800 border border-neutral-700 rounded-xl overflow-hidden mb-3 ml-11">
+        <div class="flex p-3">
+          <div class="w-20 h-20 bg-neutral-700 rounded-lg flex items-center justify-center mr-3 flex-shrink-0">
+            <p class="text-neutral-500 text-xs text-center px-1">Cyber Descent Cover</p>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-start justify-between mb-1">
+              <h3 class="text-sm mr-2">Cyber Descent</h3>
+              <div class="bg-white text-neutral-900 px-2 py-0.5 rounded text-xs flex-shrink-0">89%</div>
+            </div>
+            <p class="text-xs text-neutral-400 mb-2 line-clamp-2">Procedural cyberpunk dungeon crawler</p>
+            <div class="flex flex-wrap gap-1 mb-2">
+              <span class="bg-neutral-700 px-2 py-0.5 rounded text-xs">Action</span>
+              <span class="bg-neutral-700 px-2 py-0.5 rounded text-xs">Cyberpunk</span>
+              <span class="bg-neutral-700 px-2 py-0.5 rounded text-xs">25-35min</span>
+            </div>
+          </div>
+        </div>
+        <div class="bg-neutral-900 px-3 py-2 border-t border-neutral-700">
+          <div class="flex items-center justify-between mb-2">
+            <p class="text-xs text-neutral-400">Why this match:</p>
+          </div>
+          <p class="text-xs text-neutral-300 mb-3">Hack-and-slash combat, augmentation system, replayability focus</p>
+          <div class="flex space-x-2">
+            <button class="flex-1 bg-white text-neutral-900 py-2 rounded-lg text-xs flex items-center justify-center">
+              <i class="fa-solid fa-bookmark mr-2"></i>
+              Save
+            </button>
+            <button class="flex-1 bg-neutral-700 border border-neutral-600 py-2 rounded-lg text-xs">
+              Details
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Show More Button -->
+      <button class="w-full bg-neutral-800 border border-neutral-700 rounded-lg py-3 text-xs text-neutral-300 ml-11 flex items-center justify-center">
+        <span>Show 1 more result</span>
+        <i class="fa-solid fa-chevron-down ml-2"></i>
+      </button>
+    </div>
+
+    <!-- Typing Indicator (optional) -->
+    <div id="typing-indicator" class="flex items-start space-x-3 opacity-0">
+      <div class="w-8 h-8 bg-neutral-800 border border-neutral-700 rounded-lg flex items-center justify-center flex-shrink-0">
+        <i class="fa-solid fa-brain text-white text-xs"></i>
+      </div>
+      <div class="bg-neutral-800 border border-neutral-700 rounded-2xl rounded-tl-sm px-4 py-3">
+        <div class="flex space-x-1">
+          <div class="w-2 h-2 bg-neutral-600 rounded-full"></div>
+          <div class="w-2 h-2 bg-neutral-600 rounded-full"></div>
+          <div class="w-2 h-2 bg-neutral-600 rounded-full"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Input Area (Fixed Bottom) -->
+  <div id="input-area" class="fixed bottom-20 left-0 right-0 bg-neutral-900 border-t border-neutral-800 z-10 px-6 py-4">
+    <!-- Quick Suggestions -->
+    <div class="flex space-x-2 mb-3 overflow-x-auto pb-2">
+      <button class="bg-neutral-800 border border-neutral-700 px-3 py-1.5 rounded-lg text-xs whitespace-nowrap flex-shrink-0">
+        <i class="fa-solid fa-star mr-1 text-neutral-400"></i>
+        Best co-op games
+      </button>
+      <button class="bg-neutral-800 border border-neutral-700 px-3 py-1.5 rounded-lg text-xs whitespace-nowrap flex-shrink-0">
+        <i class="fa-solid fa-fire mr-1 text-neutral-400"></i>
+        Hard difficulty RPGs
+      </button>
+      <button class="bg-neutral-800 border border-neutral-700 px-3 py-1.5 rounded-lg text-xs whitespace-nowrap flex-shrink-0">
+        <i class="fa-solid fa-clock mr-1 text-neutral-400"></i>
+        Quick sessions
+      </button>
+    </div>
+
+    <!-- Input Field -->
+    <div class="flex items-center space-x-2">
+      <div class="flex-1 bg-neutral-800 border border-neutral-700 rounded-xl px-4 py-3 flex items-center">
+        <input type="text" placeholder="Ask about games..." class="bg-transparent text-sm text-white placeholder-neutral-500 flex-1 outline-none">
+        <button class="ml-2">
+          <i class="fa-solid fa-microphone text-neutral-400"></i>
+        </button>
+      </div>
+      <button class="w-12 h-12 bg-white rounded-xl flex items-center justify-center flex-shrink-0">
+        <i class="fa-solid fa-arrow-up text-neutral-900"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Bottom Navigation -->
+  <nav id="footer" class="fixed bottom-0 left-0 right-0 bg-neutral-900 border-t border-neutral-800 z-20">
+    <div class="flex justify-around items-center h-20 px-4">
+      <button class="flex flex-col items-center justify-center flex-1">
+        <i class="fa-solid fa-compass text-neutral-400 text-xl mb-1"></i>
+        <span class="text-xs text-neutral-400">Discovery</span>
+      </button>
+      <button class="flex flex-col items-center justify-center flex-1">
+        <i class="fa-solid fa-search text-white text-xl mb-1"></i>
+        <span class="text-xs text-white">AI Search</span>
+      </button>
+      <button class="flex flex-col items-center justify-center flex-1">
+        <i class="fa-solid fa-trophy text-neutral-400 text-xl mb-1"></i>
+        <span class="text-xs text-neutral-400">Quests</span>
+      </button>
+      <button class="flex flex-col items-center justify-center flex-1">
+        <i class="fa-solid fa-bookmark text-neutral-400 text-xl mb-1"></i>
+        <span class="text-xs text-neutral-400">Library</span>
+      </button>
+      <button class="flex flex-col items-center justify-center flex-1">
+        <i class="fa-solid fa-user text-neutral-400 text-xl mb-1"></i>
+        <span class="text-xs text-neutral-400">Profile</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Bottom Accent -->
+  <div class="absolute bottom-20 left-0 w-full h-1 bg-gradient-to-r from-neutral-800 via-neutral-700 to-neutral-800"></div>
+</div>
+
+                        </body>
+                        </html>
+                        
