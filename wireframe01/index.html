@@ -1,0 +1,368 @@
+
+                <html>
+                <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+                    <script src="https://cdn.tailwindcss.com"></script>
+                    <script>
+                        window.FontAwesomeConfig = {
+                            autoReplaceSvg: 'nest', // Options: 'nest', 'remove', 'replace'
+                        };
+                    </script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+                    <style>
+                    </style>
+                    <script>
+                    tailwind.config = {
+                    theme: {
+                        extend: {
+                        colors: {
+                            primary: {"50":"#fafafa","100":"#f5f5f5","200":"#e5e5e5","300":"#d4d4d4","400":"#a3a3a3","500":"#737373","600":"#525252","700":"#404040","800":"#262626","900":"#171717","950":"#0a0a0a"}
+                        }
+                        }
+                    }
+                    }
+                </script>
+                </head>
+
+                <body>
+                        <div id="search-results" class="min-h-[840px] bg-neutral-900 text-white relative overflow-hidden pb-20">
+  <!-- Background Pattern -->
+  <div class="absolute inset-0 opacity-10">
+    <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-neutral-800 to-neutral-900"></div>
+    <div class="absolute top-20 right-10 w-32 h-32 border border-neutral-700 rounded-full opacity-20"></div>
+    <div class="absolute bottom-40 left-5 w-20 h-20 border border-neutral-700 rounded-full opacity-20"></div>
+  </div>
+
+  <!-- Header -->
+  <header id="header" class="relative z-10 px-6 pt-8 pb-4">
+    <div class="flex items-center justify-between mb-4">
+      <div class="flex items-center space-x-3">
+        <button class="w-10 h-10 bg-neutral-800 border border-neutral-700 rounded-lg flex items-center justify-center">
+          <i class="fa-solid fa-arrow-left text-white"></i>
+        </button>
+        <div>
+          <h1 class="text-lg">Search Results</h1>
+          <p class="text-xs text-neutral-400">127 games found</p>
+        </div>
+      </div>
+      <div class="flex items-center space-x-2">
+        <button class="w-10 h-10 bg-neutral-800 border border-neutral-700 rounded-lg flex items-center justify-center">
+          <i class="fa-solid fa-sliders text-neutral-400"></i>
+        </button>
+        <button class="w-10 h-10 bg-neutral-800 border border-neutral-700 rounded-lg flex items-center justify-center">
+          <i class="fa-solid fa-list text-white"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sticky Filter Bar -->
+  <div id="sticky-filter-bar" class="relative z-10 px-6 pb-4 bg-neutral-900 border-b border-neutral-800">
+    <div class="flex items-center space-x-2 mb-3">
+      <div class="flex-1 flex space-x-2 overflow-x-auto pb-1">
+        <button class="bg-white text-neutral-900 px-3 py-1.5 rounded-lg text-xs whitespace-nowrap flex items-center">
+          <span>Sci-Fi</span>
+          <i class="fa-solid fa-xmark ml-2"></i>
+        </button>
+        <button class="bg-white text-neutral-900 px-3 py-1.5 rounded-lg text-xs whitespace-nowrap flex items-center">
+          <span>Roguelike</span>
+          <i class="fa-solid fa-xmark ml-2"></i>
+        </button>
+        <button class="bg-neutral-800 border border-neutral-700 px-3 py-1.5 rounded-lg text-xs whitespace-nowrap">
+          +Genre
+        </button>
+        <button class="bg-neutral-800 border border-neutral-700 px-3 py-1.5 rounded-lg text-xs whitespace-nowrap">
+          +Difficulty
+        </button>
+      </div>
+    </div>
+    
+    <div class="flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <button class="bg-neutral-800 border border-neutral-700 px-3 py-1.5 rounded-lg text-xs flex items-center">
+          <i class="fa-solid fa-sort mr-2 text-neutral-400"></i>
+          Match %
+        </button>
+        <button class="bg-neutral-800 border border-neutral-700 px-3 py-1.5 rounded-lg text-xs flex items-center">
+          <i class="fa-solid fa-clock mr-2 text-neutral-400"></i>
+          Session
+        </button>
+      </div>
+      <button class="bg-neutral-800 border border-neutral-700 px-3 py-1.5 rounded-lg text-xs flex items-center">
+        <i class="fa-solid fa-code-compare mr-2 text-neutral-400"></i>
+        Compare (0)
+      </button>
+    </div>
+  </div>
+
+  <!-- Results Grid -->
+  <main id="main-content" class="relative z-10 px-6 pt-4 pb-32">
+    
+    <!-- Result Card 1 -->
+    <div class="bg-neutral-800 border border-neutral-700 rounded-xl overflow-hidden mb-4">
+      <div class="flex p-4">
+        <div class="w-20 h-20 bg-neutral-700 rounded-lg flex items-center justify-center mr-4 flex-shrink-0 relative">
+          <p class="text-neutral-500 text-xs text-center px-1">Neon Strike Cover</p>
+          <button class="absolute -top-2 -right-2 w-6 h-6 bg-neutral-800 border border-neutral-600 rounded-full flex items-center justify-center">
+            <i class="fa-solid fa-plus text-xs text-neutral-400"></i>
+          </button>
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-start justify-between mb-2">
+            <h3 class="text-sm mr-2">Neon Strike Protocol</h3>
+            <div class="bg-white text-neutral-900 px-2 py-1 rounded text-xs flex-shrink-0 flex items-center">
+              <i class="fa-solid fa-brain mr-1"></i>
+              94%
+            </div>
+          </div>
+          <p class="text-xs text-neutral-400 mb-3">Fast-paced sci-fi roguelike with weapon synergies and cybernetic upgrades</p>
+          
+          <!-- Metadata Tags -->
+          <div class="flex flex-wrap gap-1 mb-3">
+            <span class="bg-neutral-700 px-2 py-0.5 rounded text-xs">Roguelike</span>
+            <span class="bg-neutral-700 px-2 py-0.5 rounded text-xs">Sci-Fi</span>
+            <span class="bg-neutral-700 px-2 py-0.5 rounded text-xs">High Difficulty</span>
+            <span class="bg-neutral-700 px-2 py-0.5 rounded text-xs">15-30min</span>
+          </div>
+
+          <!-- Intelligence Insights -->
+          <div class="grid grid-cols-3 gap-2 mb-3">
+            <div class="bg-neutral-900 border border-neutral-700 rounded px-2 py-1">
+              <p class="text-xs text-neutral-500">Session</p>
+              <p class="text-xs text-white">20min</p>
+            </div>
+            <div class="bg-neutral-900 border border-neutral-700 rounded px-2 py-1">
+              <p class="text-xs text-neutral-500">Difficulty</p>
+              <p class="text-xs text-white">Hard</p>
+            </div>
+            <div class="bg-neutral-900 border border-neutral-700 rounded px-2 py-1">
+              <p class="text-xs text-neutral-500">Reward</p>
+              <p class="text-xs text-white">850 pts</p>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="flex space-x-2">
+            <button class="flex-1 bg-white text-neutral-900 py-2 rounded-lg text-xs flex items-center justify-center">
+              <i class="fa-solid fa-bookmark mr-2"></i>
+              Save
+            </button>
+            <button class="flex-1 bg-neutral-700 border border-neutral-600 py-2 rounded-lg text-xs">
+              Details
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Result Card 2 -->
+    <div class="bg-neutral-800 border border-neutral-700 rounded-xl overflow-hidden mb-4">
+      <div class="flex p-4">
+        <div class="w-20 h-20 bg-neutral-700 rounded-lg flex items-center justify-center mr-4 flex-shrink-0 relative">
+          <p class="text-neutral-500 text-xs text-center px-1">Void Runner Cover</p>
+          <button class="absolute -top-2 -right-2 w-6 h-6 bg-neutral-800 border border-neutral-600 rounded-full flex items-center justify-center">
+            <i class="fa-solid fa-plus text-xs text-neutral-400"></i>
+          </button>
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-start justify-between mb-2">
+            <h3 class="text-sm mr-2">Void Runner</h3>
+            <div class="bg-white text-neutral-900 px-2 py-1 rounded text-xs flex-shrink-0 flex items-center">
+              <i class="fa-solid fa-brain mr-1"></i>
+              91%
+            </div>
+          </div>
+          <p class="text-xs text-neutral-400 mb-3">Space station roguelike with modular ship builds and tactical combat</p>
+          
+          <!-- Metadata Tags -->
+          <div class="flex flex-wrap gap-1 mb-3">
+            <span class="bg-neutral-700 px-2 py-0.5 rounded text-xs">Roguelike</span>
+            <span class="bg-neutral-700 px-2 py-0.5 rounded text-xs">Space</span>
+            <span class="bg-neutral-700 px-2 py-0.5 rounded text-xs">Medium Difficulty</span>
+            <span class="bg-neutral-700 px-2 py-0.5 rounded text-xs">20-40min</span>
+          </div>
+
+          <!-- Intelligence Insights -->
+          <div class="grid grid-cols-3 gap-2 mb-3">
+            <div class="bg-neutral-900 border border-neutral-700 rounded px-2 py-1">
+              <p class="text-xs text-neutral-500">Session</p>
+              <p class="text-xs text-white">30min</p>
+            </div>
+            <div class="bg-neutral-900 border border-neutral-700 rounded px-2 py-1">
+              <p class="text-xs text-neutral-500">Difficulty</p>
+              <p class="text-xs text-white">Medium</p>
+            </div>
+            <div class="bg-neutral-900 border border-neutral-700 rounded px-2 py-1">
+              <p class="text-xs text-neutral-500">Reward</p>
+              <p class="text-xs text-white">720 pts</p>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="flex space-x-2">
+            <button class="flex-1 bg-white text-neutral-900 py-2 rounded-lg text-xs flex items-center justify-center">
+              <i class="fa-solid fa-bookmark mr-2"></i>
+              Save
+            </button>
+            <button class="flex-1 bg-neutral-700 border border-neutral-600 py-2 rounded-lg text-xs">
+              Details
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Result Card 3 -->
+    <div class="bg-neutral-800 border border-neutral-700 rounded-xl overflow-hidden mb-4">
+      <div class="flex p-4">
+        <div class="w-20 h-20 bg-neutral-700 rounded-lg flex items-center justify-center mr-4 flex-shrink-0 relative">
+          <p class="text-neutral-500 text-xs text-center px-1">Cyber Descent Cover</p>
+          <button class="absolute -top-2 -right-2 w-6 h-6 bg-neutral-800 border border-neutral-600 rounded-full flex items-center justify-center">
+            <i class="fa-solid fa-plus text-xs text-neutral-400"></i>
+          </button>
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-start justify-between mb-2">
+            <h3 class="text-sm mr-2">Cyber Descent</h3>
+            <div class="bg-white text-neutral-900 px-2 py-1 rounded text-xs flex-shrink-0 flex items-center">
+              <i class="fa-solid fa-brain mr-1"></i>
+              89%
+            </div>
+          </div>
+          <p class="text-xs text-neutral-400 mb-3">Procedural cyberpunk dungeon crawler with hacking mechanics</p>
+          
+          <!-- Metadata Tags -->
+          <div class="flex flex-wrap gap-1 mb-3">
+            <span class="bg-neutral-700 px-2 py-0.5 rounded text-xs">Action</span>
+            <span class="bg-neutral-700 px-2 py-0.5 rounded text-xs">Cyberpunk</span>
+            <span class="bg-neutral-700 px-2 py-0.5 rounded text-xs">High Difficulty</span>
+            <span class="bg-neutral-700 px-2 py-0.5 rounded text-xs">25-35min</span>
+          </div>
+
+          <!-- Intelligence Insights -->
+          <div class="grid grid-cols-3 gap-2 mb-3">
+            <div class="bg-neutral-900 border border-neutral-700 rounded px-2 py-1">
+              <p class="text-xs text-neutral-500">Session</p>
+              <p class="text-xs text-white">30min</p>
+            </div>
+            <div class="bg-neutral-900 border border-neutral-700 rounded px-2 py-1">
+              <p class="text-xs text-neutral-500">Difficulty</p>
+              <p class="text-xs text-white">Hard</p>
+            </div>
+            <div class="bg-neutral-900 border border-neutral-700 rounded px-2 py-1">
+              <p class="text-xs text-neutral-500">Reward</p>
+              <p class="text-xs text-white">790 pts</p>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="flex space-x-2">
+            <button class="flex-1 bg-white text-neutral-900 py-2 rounded-lg text-xs flex items-center justify-center">
+              <i class="fa-solid fa-bookmark mr-2"></i>
+              Save
+            </button>
+            <button class="flex-1 bg-neutral-700 border border-neutral-600 py-2 rounded-lg text-xs">
+              Details
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Result Card 4 -->
+    <div class="bg-neutral-800 border border-neutral-700 rounded-xl overflow-hidden mb-4">
+      <div class="flex p-4">
+        <div class="w-20 h-20 bg-neutral-700 rounded-lg flex items-center justify-center mr-4 flex-shrink-0 relative">
+          <p class="text-neutral-500 text-xs text-center px-1">Stellar Forge Cover</p>
+          <button class="absolute -top-2 -right-2 w-6 h-6 bg-neutral-800 border border-neutral-600 rounded-full flex items-center justify-center">
+            <i class="fa-solid fa-plus text-xs text-neutral-400"></i>
+          </button>
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-start justify-between mb-2">
+            <h3 class="text-sm mr-2">Stellar Forge</h3>
+            <div class="bg-white text-neutral-900 px-2 py-1 rounded text-xs flex-shrink-0 flex items-center">
+              <i class="fa-solid fa-brain mr-1"></i>
+              87%
+            </div>
+          </div>
+          <p class="text-xs text-neutral-400 mb-3">Resource management roguelike with spaceship customization</p>
+          
+          <!-- Metadata Tags -->
+          <div class="flex flex-wrap gap-1 mb-3">
+            <span class="bg-neutral-700 px-2 py-0.5 rounded text-xs">Strategy</span>
+            <span class="bg-neutral-700 px-2 py-0.5 rounded text-xs">Space</span>
+            <span class="bg-neutral-700 px-2 py-0.5 rounded text-xs">Medium Difficulty</span>
+            <span class="bg-neutral-700 px-2 py-0.5 rounded text-xs">45-60min</span>
+          </div>
+
+          <!-- Intelligence Insights -->
+          <div class="grid grid-cols-3 gap-2 mb-3">
+            <div class="bg-neutral-900 border border-neutral-700 rounded px-2 py-1">
+              <p class="text-xs text-neutral-500">Session</p>
+              <p class="text-xs text-white">50min</p>
+            </div>
+            <div class="bg-neutral-900 border border-neutral-700 rounded px-2 py-1">
+              <p class="text-xs text-neutral-500">Difficulty</p>
+              <p class="text-xs text-white">Medium</p>
+            </div>
+            <div class="bg-neutral-900 border border-neutral-700 rounded px-2 py-1">
+              <p class="text-xs text-neutral-500">Reward</p>
+              <p class="text-xs text-white">650 pts</p>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="flex space-x-2">
+            <button class="flex-1 bg-white text-neutral-900 py-2 rounded-lg text-xs flex items-center justify-center">
+              <i class="fa-solid fa-bookmark mr-2"></i>
+              Save
+            </button>
+            <button class="flex-1 bg-neutral-700 border border-neutral-600 py-2 rounded-lg text-xs">
+              Details
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Load More -->
+    <button class="w-full bg-neutral-800 border border-neutral-700 rounded-lg py-4 text-sm text-neutral-300 flex items-center justify-center">
+      <span>Load 10 more games</span>
+      <i class="fa-solid fa-chevron-down ml-2"></i>
+    </button>
+  </main>
+
+  <!-- Bottom Navigation -->
+  <nav id="footer" class="fixed bottom-0 left-0 right-0 bg-neutral-900 border-t border-neutral-800 z-20">
+    <div class="flex justify-around items-center h-20 px-4">
+      <button class="flex flex-col items-center justify-center flex-1">
+        <i class="fa-solid fa-compass text-neutral-400 text-xl mb-1"></i>
+        <span class="text-xs text-neutral-400">Discovery</span>
+      </button>
+      <button class="flex flex-col items-center justify-center flex-1">
+        <i class="fa-solid fa-search text-white text-xl mb-1"></i>
+        <span class="text-xs text-white">AI Search</span>
+      </button>
+      <button class="flex flex-col items-center justify-center flex-1">
+        <i class="fa-solid fa-trophy text-neutral-400 text-xl mb-1"></i>
+        <span class="text-xs text-neutral-400">Quests</span>
+      </button>
+      <button class="flex flex-col items-center justify-center flex-1">
+        <i class="fa-solid fa-bookmark text-neutral-400 text-xl mb-1"></i>
+        <span class="text-xs text-neutral-400">Library</span>
+      </button>
+      <button class="flex flex-col items-center justify-center flex-1">
+        <i class="fa-solid fa-user text-neutral-400 text-xl mb-1"></i>
+        <span class="text-xs text-neutral-400">Profile</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Bottom Accent -->
+  <div class="absolute bottom-20 left-0 w-full h-1 bg-gradient-to-r from-neutral-800 via-neutral-700 to-neutral-800"></div>
+</div>
+                        </body>
+                        </html>
+                        
